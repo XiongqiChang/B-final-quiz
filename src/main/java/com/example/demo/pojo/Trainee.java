@@ -31,7 +31,7 @@ public class Trainee {
 
     private Boolean grouped;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "group_id",foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private Group group;
 

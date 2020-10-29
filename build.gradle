@@ -32,6 +32,8 @@ dependencies {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.13'
+    testCompile group: 'com.h2database', name: 'h2', version: '1.4.197'
+
 
 }
 
