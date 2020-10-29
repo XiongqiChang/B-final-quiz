@@ -38,6 +38,6 @@ class TraineeServiceTest {
 
         List<TraineeDto> traineeList = traineeService.getTraineeList(false);
         assertThat(traineeList.size()).isEqualTo(1);
-
     }
+
 }
