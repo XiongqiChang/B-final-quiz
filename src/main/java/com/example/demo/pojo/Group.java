@@ -16,7 +16,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "mygroup")
+@Table(name = "groups")
 public class Group {
 
     @Id
