@@ -15,7 +15,7 @@ public interface TrainerRepository extends JpaRepository<Trainer,Long> {
     Optional<Trainer> findByName(String name);
 
     @Override
-    Trainer  save(Trainer entity);
+    Trainer save(Trainer entity);
 
     List<Trainer> findAllByGroupId(Long id);
 
