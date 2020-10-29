@@ -48,10 +48,8 @@ public class GroupService {
 
 
     public List<GroupDto> autoGroup() {
-
         List<Trainer> trainers = trainerRepository.findAll();
         List<Trainee> trainees = traineeRepository.findAll();
-
         if (trainers.size() < GROUP_TRAINER){
                 throw new GroupUnableException(new Error("无法分组"));
         }
