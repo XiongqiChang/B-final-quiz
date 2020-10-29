@@ -31,9 +31,7 @@ public class TrainerController {
     @PostMapping("/trainers")
     @ResponseStatus(HttpStatus.CREATED)
     public TrainerDto addTrainer(@RequestBody @Valid TrainerDto trainerDto){
-
         return trainerService.addTrainer(trainerDto);
-
     }
 
     @DeleteMapping("/trainers/{id}")

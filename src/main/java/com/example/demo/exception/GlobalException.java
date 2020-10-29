@@ -32,4 +32,11 @@ public class GlobalException {
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getError());
     }
+
+    @ExceptionHandler(GroupUnableException.class)
+    public ResponseEntity<Error> handle(GroupUnableException e){
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getError());
+    }
+
 }

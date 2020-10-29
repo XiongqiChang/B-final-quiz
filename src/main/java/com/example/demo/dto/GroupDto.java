@@ -17,7 +17,7 @@ public class GroupDto {
 
     private String name;
 
-    private List<TraineeDto> traineeDtoList;
+    private List<TraineeDto> trainees;
 
-    private List<TrainerDto> trainerDtoList;
+    private List<TrainerDto> trainers;
 }
