@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.TraineeDto;
-import com.example.demo.service.TraineeService;
+import com.example.demo.dto.TrainerDto;
+import com.example.demo.service.TrainerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,30 +16,29 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-public class TraineeController {
+public class TrainerController {
+    private final TrainerService trainerService;
 
-    private  final  TraineeService traineeService;
-
-    public TraineeController(TraineeService traineeService) {
-        this.traineeService = traineeService;
+    public TrainerController(TrainerService trainerService) {
+        this.trainerService = trainerService;
     }
 
-    @GetMapping("/trainees")
-    public List<TraineeDto> getTrainees(@RequestParam boolean grouped ){
-        return  traineeService.getTraineeList(grouped);
+    @GetMapping("/trainers")
+    public List<TrainerDto> getTrainerList(@RequestParam boolean grouped){
+        return trainerService.getTrainerList(grouped);
     }
 
-    @PostMapping("/trainees")
+    @PostMapping("/trainers")
     @ResponseStatus(HttpStatus.CREATED)
-    public TraineeDto addTrainee(@RequestBody @Valid TraineeDto traineeDto){
+    public TrainerDto addTrainer(@RequestBody @Valid TrainerDto trainerDto){
 
-        return traineeService.addTrainee(traineeDto);
+        return trainerService.addTrainer(trainerDto);
 
     }
 
-    @DeleteMapping("/trainees/{id}")
+    @DeleteMapping("/trainers/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteTrainee(@PathVariable Long id){
-         traineeService.deleteTrainee(id);
+    public void deleteTrainer(@PathVariable Long id){
+        trainerService.deleteTrainer(id);
     }
 }

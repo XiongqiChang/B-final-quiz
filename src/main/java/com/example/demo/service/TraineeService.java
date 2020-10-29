@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.dto.TraineeDto;
 import com.example.demo.exception.Error;
 import com.example.demo.exception.TraineeIsExistException;
+import com.example.demo.exception.TraineeNotExistException;
 import com.example.demo.pojo.Trainee;
 import com.example.demo.repository.TraineeRepository;
 import org.springframework.stereotype.Service;
@@ -39,5 +40,14 @@ public class TraineeService {
         Trainee newTrainee = traineeRepository.save(trainee);
         return  TraineeDto.builder().name(newTrainee.getName()).id(newTrainee.getId()).build();
 
+    }
+
+    public void deleteTrainee(Long id) {
+
+        Optional<Trainee> traineeById = traineeRepository.findById(id);
+        if (!traineeById.isPresent()){
+            throw  new TraineeNotExistException(new Error("该学员不存在"));
+        }
+        traineeRepository.deleteById(id);
     }
 }

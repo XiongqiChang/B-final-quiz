@@ -5,6 +5,6 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class TraineeIsExistException extends RuntimeException {
+public class TrainerNotExistException extends RuntimeException {
     private Error error;
 }

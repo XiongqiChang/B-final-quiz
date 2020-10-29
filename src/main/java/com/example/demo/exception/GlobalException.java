@@ -20,4 +20,16 @@ public class GlobalException {
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getError());
     }
+
+    @ExceptionHandler(TrainerNotExistException.class)
+    public ResponseEntity<Error> handle(TrainerNotExistException e){
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getError());
+    }
+
+    @ExceptionHandler(TraineeNotExistException.class)
+    public ResponseEntity<Error> handle(TraineeNotExistException e){
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getError());
+    }
 }
