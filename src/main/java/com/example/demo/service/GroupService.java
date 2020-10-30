@@ -60,10 +60,12 @@ public class GroupService {
     }
 
 
+    // TODO GTB-工程实践: - 长方法，可以抽成多个方法提高可读性
     private List<GroupDto> initGroupDto(List<Trainer> trainers,List<Trainee> trainees){
         List<GroupDto> groupDtoList = new ArrayList<>();
         int groupNum = trainers.size() / GROUP_TRAINER;
         for (int i = 0; i < groupNum; i++){
+            // TODO GTB-工程实践: - Magic Number
             groupRepository.save(Group.builder().name(i+ 1 + "组").build());
         }
         List<Group> groups = groupRepository.findAll();
@@ -112,6 +114,7 @@ public class GroupService {
     }
 
 
+    // TODO GTB-工程实践: - 方法命名不恰当
     private List<TraineeDto> transferTrainee(Long groupId){
       return traineeRepository.findAllByGroupId(groupId).stream().map(
                item->TraineeDto.builder().id(item.getId()).name(item.getName()).build()

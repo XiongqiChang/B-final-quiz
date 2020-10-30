@@ -30,6 +30,7 @@ public class TrainerService {
     public TrainerDto addTrainer(TrainerDto trainerDto) {
 
         Optional<Trainer> byName = trainerRepository.findByName(trainerDto.getName());
+        // TODO GTB-完成度: - 违反需求，应该可以添加名字一样的讲师
         if (byName.isPresent()){
             throw new TraineeIsExistException(new Error("用户名称已经存在"));
         }

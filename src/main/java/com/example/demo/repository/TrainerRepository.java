@@ -19,6 +19,7 @@ public interface TrainerRepository extends JpaRepository<Trainer,Long> {
 
     List<Trainer> findAllByGroupId(Long id);
 
+    // TODO GTB-知识点: - 可以用save方法来更新表
     @Query(value = "update trainers as t set  t.grouped = FALSE , t.group_id = NULL WHERE group_id  = ?1",nativeQuery = true)
     @Modifying
     void updateTrainer(Long id);
