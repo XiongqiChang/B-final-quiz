@@ -19,13 +19,13 @@ class GroupControllerTest {
     @Autowired
     private  MockMvc mockMvc;
 
-    @Test
-    void getGroup() throws Exception {
-
-        mockMvc.perform(get("/groups"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$",hasSize(3)))
-                .andExpect(jsonPath("$[0].name",is("1组")));
-
-    }
+//    @Test
+//    void getGroup() throws Exception {
+//
+//        mockMvc.perform(get("/groups"))
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("$",hasSize(3)))
+//                .andExpect(jsonPath("$[0].name",is("1组")));
+//
+//    }
 }
